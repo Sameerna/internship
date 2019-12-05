@@ -1,0 +1,35 @@
+import java.io.*; 
+import java.util.*; 
+import java.lang.Math; 
+public class Main
+{
+    static void printClosest(int arr[], int n, int x) 
+    { 
+        int rl=0, rr=0; 
+        int l = 0, r = n-1, diff = Integer.MAX_VALUE; 
+        while (r > l) 
+        {  
+            if (Math.abs(arr[l] + arr[r] - x) < diff) 
+            { 
+               rl = l; 
+               rr = r; 
+               diff = Math.abs(arr[l] + arr[r] - x); 
+            } 
+   
+          
+            if (arr[l] + arr[r] > x) 
+               r--; 
+            else 
+               l++; 
+        } 
+   
+    System.out.println(" The closest pair is "+arr[rl]+" and "+ arr[rr]); 
+} 
+      
+    public static void main(String[] args) 
+    { 
+        int arr[] =  {10,22,28,29,30,40}, x = 54; 
+        int n = arr.length; 
+        printClosest(arr, n, x);         
+    } 
+} 
